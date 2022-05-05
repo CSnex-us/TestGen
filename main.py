@@ -12,10 +12,8 @@ qBank = {
     'What is the command to commit the stages changes for the Git repository?': ('git commit', 'git snapshot', 'git com', 'git save'),      
     }
 
-print(qBank['What is Git?'])
-
 numTests = int(input("How many tests need to be prepared? "))
-#print(type(numTests))
+
 
 for testNum in range(numTests):
     # Create the test and answer key files.
@@ -24,21 +22,31 @@ for testNum in range(numTests):
 
     # Write out the header for the quiz.
     quizFile.write('Name:\n\nDate:\n\nPeriod:\n\n')
-    quizFile.write((" " * 20) + f'Git and GitHub Quiz (version {testNum +1})')
+    quizFile.write((" " * 20) + f'Git and GitHub Quiz (version {testNum + 1})')
     quizFile.write("\n\n")
 
     # TODO: Shuffle the order of the question bank.
-    qBankShuffle = list(qBank.keys())
+    qBankShuffle = list(qBank)
     random.shuffle(qBankShuffle)
-    print(qBankShuffle)
 
     # TODO: Loop through the question bank, making a question for each.
     qBankLength = len(qBank)
     #for question in range(qBankLength):
-    for index, (key, value) in enumerate(qBank.items()):
-        print(f'Index: {index} :: {key}  -  {value[0]}')
-        #   TODO: Get correct and incorrect answers - correct => qBank[]
+    for key in qBankShuffle:
+        print(qBank[key])
+    # for index, (key, value) in enumerate(qBank.items()):
+    #     correctAnswer = value[0]
+    #     incorrectAnswers = list(value[1:])
+    #     answersCount = len(incorrectAnswers)
 
+    #     selectedIncorrectAnswers = random.sample(incorrectAnswers, answersCount)
+
+    #     answerOptions = selectedIncorrectAnswers + [correctAnswer]
+
+    #     quizFile.write(f'{index + 1}. {key} \n')
+    #     for i in range(answersCount +1 ):
+    #         quizFile.write(f"  {'ABCD'[i]}.  {answerOptions[i]}\n")
+    #     quizFile.write('\n')
     #print(qBankLength)
 
 
